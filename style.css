@@ -1,0 +1,344 @@
+@font-face {
+    font-family: 'Thunder';
+    src: url('./assets/fonts/Thunder-VF.ttf');
+}
+
+/* @font-face {
+    font-family: 'Neutral';
+    src: url('./assets/fonts/NeutralFace.otf');
+} */
+
+@font-face {
+    font-family: 'Harmond';
+    src: url('./assets/fonts/Harmond.otf');
+}
+
+@font-face {
+    font-family: 'Margilo';
+    src: url('./assets/fonts/Magilio.ttf');
+}
+
+@font-face {
+    font-family: 'Romona';
+    src: url('./assets/fonts/Ramona.ttf');
+}
+
+@font-face {
+    font-family: 'Triakis';
+    src: url('./assets/fonts/TriakisFont.otf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    transition: all .3s ease;
+}
+
+:root {
+    --color-orange: #f5c000;
+    --color-white: #ffffff0d;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+
+  #container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* cursor: pointer; */
+  }
+
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+.time-container {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    color: var(--color-orange);
+    text-align: center;
+    height: 150px;
+    margin-top: 5px;
+}
+
+.time {
+    font-family: 'Thunder';
+    font-weight: 800;
+    letter-spacing: .3;
+    font-size: 5rem;
+    margin: 0;
+}
+
+.date {
+    font-family: 'Harmond';
+    margin: 0;
+    font-weight: 100;
+    letter-spacing: .1rem;
+    font-size: 1.2rem;
+}
+
+.day-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.day {
+    font-size: 5rem;
+    color: var(--color-orange);
+    font-family: 'Margilo';
+}
+
+#todo-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    background-color: var(--color-white);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    width: 300px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid var(--color-white);
+}
+
+#todo-container.active {
+    height: 400px;
+}
+
+.to-do-head {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    align-items: center;
+}
+
+.to-do-head p {
+    font-family: 'Triakis';
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.to-do-head button {
+    display: block;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-content: center;
+    color: var(--color-orange);
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+.to-do-head button:hover {
+    cursor: pointer;
+    border-radius: 5px;
+    border-color: var(--color-orange);
+}
+
+.todo-card-container {
+    padding: 1px;
+    width: 100%;
+    font-family: 'Romona';
+    font-size: .8rem;
+    display: grid;
+    grid-template-columns: 30px auto 30px;
+    gap: .5em;
+    place-items: center;
+    height: 50px;
+}
+
+.todo-card-container.completed {
+    text-decoration: line-through;
+}
+
+.todo-card-container:hover {
+    cursor: pointer;
+    background-color: #f5c00020;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    /* background-color: #fff; */
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid var(--color-orange);
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--color-orange);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+.todo-delete-container button {
+    display: grid;
+    place-content: center;
+    background-color: transparent;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+button svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.todo-delete-container button:hover {
+    background-color: rgba(255, 0, 0, 0.241);
+    cursor: pointer;
+    transform: rotate(-360deg);
+}
+
+#todo-list {
+    overflow-y: scroll;
+    height: 350px;
+}
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 1px;
+    background-color: var(--color-white);
+}
+
+#most-visited-sites {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    z-index: 10;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.most-visited {
+    background-color: var(--color-white);
+    backdrop-filter: blur(10px);
+    width: 50%;
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--color-white);
+    display: grid;
+    grid-template-columns: 90% 10%;
+    place-items: center;
+    place-content: center;
+}
+
+#most-add-btn {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    height: 30px;
+}
+
+#most-add-btn:hover {
+    background-color: var(--color-white);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.site-list {
+    display: flex;
+    /* flex-wrap: wrap; */
+    gap: 10px;
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+.site-list::-webkit-scrollbar {
+    width: 1px !important;
+    height: 2px;
+    padding: 0;
+}
+
+.site-card-wrapper {
+    position: relative;
+}
+
+.site-card-container {
+    display: block;
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.site-card-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.site-delete-btn {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--color-white);
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.site-card-wrapper:hover .site-delete-btn {
+    opacity: 1;
+}
+
+.site-delete-btn svg {
+    width: 12px;
+    height: 12px;
+}
