@@ -188,7 +188,7 @@ function renderSites() {
         const siteCard = document.createElement('div');
         siteCard.className = 'site-card-wrapper';
         siteCard.innerHTML = `
-            <a href="${site.url}" class="site-card-container" title="${site.name}">
+            <a href="${site.url}" target="_blank" class="site-card-container" title="${site.name}" data-url="${site.url}">
                 <img src="${site.favicon}" alt="${site.name} favicon" onerror="this.src='default-favicon.png';">
             </a>
             <button class="site-delete-btn" data-index="${index}">
@@ -202,6 +202,9 @@ function renderSites() {
 }
 
 function addSite(name, url) {
+    if (!/^https?:\/\//i.test(url)) {
+        url = 'https://' + url;
+    }
     const favicon = `https://www.google.com/s2/favicons?domain=${url}&sz=64`;
     sites.push({ name, url, favicon });
     saveSitesToLocalStorage();
@@ -214,7 +217,7 @@ function deleteSite(index) {
     renderSites();
 }
 
-
+// Initialize the sites
 (function init() {
     sites = getSitesFromLocalStorage();
     renderSites();
@@ -231,9 +234,16 @@ addSiteButton.addEventListener('click', () => {
 });
 
 siteList.addEventListener('click', (event) => {
-    if (event.target.closest('.site-delete-btn')) {
+    const deleteButton = event.target.closest('.site-delete-btn');
+    const link = event.target.closest('a');
+
+    if (deleteButton) {
         event.preventDefault();
-        const index = parseInt(event.target.closest('.site-delete-btn').getAttribute('data-index'));
+        const index = parseInt(deleteButton.getAttribute('data-index'));
         deleteSite(index);
+    } else if (link) {
+        event.preventDefault();
+        const url = link.getAttribute('data-url');
+        chrome.tabs.create({ url: url });
     }
 });
