@@ -66,7 +66,7 @@ setDay();
 
 // Todo Code
 const todoContainer = document.querySelector('#todo-container');
-const todoHead = document.querySelector('.to-do-head')
+const todoHead = document.querySelector('.to-do-head p')
 const todoAddButton = document.getElementById('todo-add-btn');
 const todoList = document.getElementById('todo-list');
 

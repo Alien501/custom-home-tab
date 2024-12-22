@@ -28,6 +28,11 @@
     src: url('./assets/fonts/TriakisFont.otf');
 }
 
+@font-face {
+    font-family: 'Satoshi';
+    src: url('./assets/fonts/Satoshi-Variable.ttf');
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -48,23 +53,29 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
-  }
+}
 
-  #container {
+#container {
     position: relative;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    background-color: #000;
     /* cursor: pointer; */
-  }
+}
 
-  video {
+#container:hover video{
+    scale: 1.05;
+}
+
+video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
+}
 
 .time-container {
     position: absolute;
@@ -134,9 +145,11 @@ body {
 }
 
 .to-do-head p {
-    font-family: 'Triakis';
-    font-size: 1.4rem;
+    font-family: 'Satoshi';
+    font-weight: 500;
+    font-size: 1.1rem;
     text-align: center;
+    cursor: pointer;
 }
 
 .to-do-head button {
@@ -148,24 +161,26 @@ body {
     color: var(--color-orange);
     background-color: transparent;
     border: 1px solid transparent;
+    border-radius: 50%;
 }
 
 .to-do-head button:hover {
     cursor: pointer;
-    border-radius: 5px;
-    border-color: var(--color-orange);
+    /* border-color: var(--color-orange); */
 }
 
 .todo-card-container {
     padding: 1px;
     width: 100%;
-    font-family: 'Romona';
+    font-family: 'Satoshi';
     font-size: .8rem;
     display: grid;
     grid-template-columns: 30px auto 30px;
     gap: .5em;
     place-items: center;
+    text-align: left;
     height: 50px;
+    overflow: hidden;
 }
 
 .todo-card-container.completed {
@@ -175,6 +190,11 @@ body {
 .todo-card-container:hover {
     cursor: pointer;
     background-color: #f5c00020;
+}
+
+.todo-task-container {
+    width: 100%;
+    /* font-size: 1rem; */
 }
 
 input[type="checkbox"] {
