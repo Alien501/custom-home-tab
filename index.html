@@ -10,7 +10,7 @@
   </head>
   <body>
     <div id="container">
-      <video id="bgVideo" src="./assets/bg.mp4" autoplay loop muted></video>
+      <img id="bgVideo" class="background-media" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGpjajMyNHNycXN5M2p0d2ZwcjNuejlyeWRuZW5nZWZqcjYwYXBuZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uFmH8za4E6M5STIiTu/giphy.gif" alt="">
       <canvas id="embers"></canvas>
 
       <div class="day-container">
@@ -97,6 +97,26 @@
           <div class="pomo-lengths">
             <label>Focus <input type="number" id="set-focus-len" class="settings-input pomo-num" min="1" max="120" value="25"></label>
             <label>Break <input type="number" id="set-break-len" class="settings-input pomo-num" min="1" max="60" value="5"></label>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <span class="settings-label">Background media</span>
+          <div class="background-media-settings">
+            <div class="background-preview" id="bg-preview"></div>
+            <div class="background-current">
+              <span class="settings-label">Current media</span>
+              <p class="settings-hint">Upload an image, GIF, or video.</p>
+              <label class="background-slot"><span>Update</span><input type="file" id="bg-default" accept="image/*,video/*"><small id="bg-default-status">Default</small></label>
+            </div>
+          </div>
+          <label class="toggle-row background-timeline-toggle"><span>Use timeline</span><input type="checkbox" id="tog-background-timeline" class="toggle"></label>
+          <p class="settings-hint timeline-hint">Empty periods use the media from the previous period.</p>
+          <div class="background-slots" id="background-slots">
+            <label class="background-slot"><span>Morning</span><input type="file" id="bg-morning" accept="image/*,video/*"><small id="bg-morning-status">Default</small></label>
+            <label class="background-slot"><span>Afternoon</span><input type="file" id="bg-afternoon" accept="image/*,video/*"><small id="bg-afternoon-status">Uses morning</small></label>
+            <label class="background-slot"><span>Evening</span><input type="file" id="bg-evening" accept="image/*,video/*"><small id="bg-evening-status">Uses morning</small></label>
+            <label class="background-slot"><span>Night</span><input type="file" id="bg-night" accept="image/*,video/*"><small id="bg-night-status">Uses morning</small></label>
           </div>
         </div>
 

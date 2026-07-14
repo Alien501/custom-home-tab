@@ -1,5 +1,5 @@
 const container = document.getElementById('container');
-const bgVideo = document.getElementById('bgVideo');
+let bgVideo = document.getElementById('bgVideo');
 const parallaxTodoContainer = document.getElementById('todo-container');
 const parallaxDayContainer = document.querySelector('.day-container');
 const parallaxTimeContainer = document.querySelector('.time-container');
@@ -17,6 +17,10 @@ const animationConfig = {
         speed: .8
     }
 }
+
+document.addEventListener('backgroundmediachange', (event) => {
+    bgVideo = event.detail;
+});
 
 container.addEventListener('mousemove', (e) => {
     const rect = container.getBoundingClientRect();
