@@ -31,8 +31,8 @@ After installation, simply open a new tab to see your custom dashboard!
 Currently, the extension is not customizable at the user level. However, developers can modify the code to adjust the appearance and functionality:
 
 - Edit `index.html` to change the layout and content.
-- Modify `script.js` to alter the clock functionality or add new features.
-- Adjust styles in the `style.css` to change colors, fonts, etc.
+- Modify `js/script.js` (clock, todo list, bookmarks) or the modules in `js/features/` (settings, pomodoro, embers, background, Spotify widget) to alter functionality or add new features.
+- Adjust styles in `css/style.css` to change colors, fonts, etc.
 
 ## TODO
 

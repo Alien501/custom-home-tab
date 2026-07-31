@@ -1,36 +1,36 @@
 @font-face {
     font-family: 'Thunder';
-    src: url('./assets/fonts/Thunder-VF.ttf');
+    src: url('../assets/fonts/Thunder-VF.ttf');
 }
 
 /* @font-face {
     font-family: 'Neutral';
-    src: url('./assets/fonts/NeutralFace.otf');
+    src: url('../assets/fonts/NeutralFace.otf');
 } */
 
 @font-face {
     font-family: 'Harmond';
-    src: url('./assets/fonts/Harmond.otf');
+    src: url('../assets/fonts/Harmond.otf');
 }
 
 @font-face {
     font-family: 'Margilo';
-    src: url('./assets/fonts/Magilio.ttf');
+    src: url('../assets/fonts/Magilio.ttf');
 }
 
 @font-face {
     font-family: 'Romona';
-    src: url('./assets/fonts/Ramona.ttf');
+    src: url('../assets/fonts/Ramona.ttf');
 }
 
 @font-face {
     font-family: 'Triakis';
-    src: url('./assets/fonts/TriakisFont.otf');
+    src: url('../assets/fonts/TriakisFont.otf');
 }
 
 @font-face {
     font-family: 'Satoshi';
-    src: url('./assets/fonts/Satoshi-Variable.ttf');
+    src: url('../assets/fonts/Satoshi-Variable.ttf');
 }
 
 * {
