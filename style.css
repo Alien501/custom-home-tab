@@ -601,6 +601,10 @@ button svg {
     overflow: hidden;
 }
 
+#music-container.hidden {
+    display: none;
+}
+
 #music-container iframe {
     display: block;
     height: 100%;
@@ -1003,6 +1007,10 @@ a:focus-visible {
     font-size: 0.78rem;
     line-height: 1.35;
     color: var(--color-text-dim);
+}
+
+.settings-hint a {
+    color: var(--color-orange);
 }
 
 .background-slots {
