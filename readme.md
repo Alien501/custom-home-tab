@@ -1,17 +1,24 @@
-# Custom New Tab Extension
+# Customisable New Tab Dashboard
 
-## Initial Release v1.0.0
+A clean, distraction-free new tab page for Chromium-based browsers. It replaces the default new tab with a minimalist dashboard — clock, to-do list, bookmarks, a pomodoro timer, and more — all customisable from an in-page Settings panel, with everything stored locally in your browser.
 
-Welcome to the Custom New Tab Extension! This browser extension replaces the default new tab page with a personalized, minimalist dashboard featuring a sleek clock display.
-
-![Extension Screenshot](./assets/image.png)
+![Extension Screenshot](demo/image.png)
+<video src="/demo/demo.mp4" autoplay="true" muted loop></video>
 
 ## Features
 
-- **Clean Interface**: A distraction-free new tab experience.
-- **Real-time Clock**: Displays the current time, updating every second.
-- **Lightweight**: Minimal impact on browser performance.
-- **Increase Productivity**: Reduce distraction with intutive UI
+- **Live clock & date** — updates every second, with an optional seconds display.
+- **Greeting & daily focus** — a personal greeting plus a click-to-edit focus line, or a rotating daily quote when you haven't set one.
+- **To-do list** — add, complete, and remove tasks, saved locally.
+- **Bookmarks** — pin your most-visited sites with auto-fetched favicons.
+- **Pomodoro timer** — configurable focus/break lengths, stays in sync across open tabs.
+- **Custom background media** — upload your own image, GIF, or video, optionally on a time-of-day timeline (morning/afternoon/evening/night).
+- **Accent colours & ambient embers** — pick an accent colour and toggle a subtle particle effect.
+- **Spotify status widget** — optional now-playing widget, off and hidden by default until you add your UID.
+- **Parallax effect** — subtle depth on mouse movement.
+- **Fully local** — no accounts, no external storage; settings live in your browser's `localStorage`/`IndexedDB`.
+
+Everything above is toggled or configured from the Settings panel (gear icon, bottom-right).
 
 ## Installation
 
@@ -24,11 +31,11 @@ Welcome to the Custom New Tab Extension! This browser extension replaces the def
 
 ## Usage
 
-After installation, simply open a new tab to see your custom dashboard!
+After installation, simply open a new tab to see your custom dashboard! Click the gear icon in the bottom-right corner to open Settings and customise it to your liking.
 
 ## Customization
 
-Currently, the extension is not customizable at the user level. However, developers can modify the code to adjust the appearance and functionality:
+Most customisation is available directly in the app via the Settings panel — name, focus line, accent colour, pomodoro lengths, background media, and which widgets are shown. For deeper changes, developers can edit the source:
 
 - Edit `index.html` to change the layout and content.
 - Modify `js/script.js` (clock, todo list, bookmarks) or the modules in `js/features/` (settings, pomodoro, embers, background, Spotify widget) to alter functionality or add new features.
@@ -36,11 +43,11 @@ Currently, the extension is not customizable at the user level. However, develop
 
 ## TODO
 
-- [ ] Implement user-level customization options
+- [x] Implement user-level customization options
 - [ ] Fix any reported bugs
-- [ ] Refine and clean up the design
-- [ ] Add more features (e.g., weather, to-do list)
-- [ ] Optimize performance
+- [x] Refine and clean up the design
+- [ ] Add more features (e.g., weather)
+- [x] Optimize performance
 
 ## Contributing
 
@@ -52,16 +59,8 @@ Contributions are always welcomed! If you'd like to contribute, please:
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
 ## Contact
 
 Alien501 - [cvignesh404@gmail.com](mailto:cvignesh404@gmail.com)
 
 Project Link: [https://github.com/Alien501/custom-home-tab](https://github.com/Alien501/custom-home-tab)
-
----
-
-We appreciate your interest in the Custom New Tab Extension! While this initial release has limited customization options, we're excited about the potential for growth and improvement. Your feedback and contributions can help shape the future of this extension, making it more useful and versatile for all users. Whether you're a user with feature ideas or a developer looking to contribute code, your input is valuable. Let's work together to create an amazing new tab experience!
