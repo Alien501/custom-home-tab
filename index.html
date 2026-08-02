@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alien501</title>
+    <title>Custom Home tab - By Alien501</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="/libs/anime.min.js"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
@@ -69,7 +69,10 @@
       </div>
 
       <button id="settings-btn" class="settings-btn" title="Settings" aria-label="Open settings">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle class="setting-circle" cx="12" cy="12" r="3"></circle>
+          <path class="setting-gears" d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
       </button>
 
       <div id="settings-panel" class="settings-panel" aria-hidden="true">
@@ -83,6 +86,12 @@
         <div class="settings-section">
           <label class="settings-label" for="set-name">Your name</label>
           <input type="text" id="set-name" class="settings-input" placeholder="Add your name" maxlength="24">
+        </div>
+
+        <div class="settings-section">
+          <label class="settings-label" for="set-tab-title">Tab title</label>
+          <input type="text" id="set-tab-title" class="settings-input" placeholder="Custom Home tab - By Alien501" maxlength="60">
+          <p class="settings-hint">Shown in the browser tab. Falls back to your name, then "Custom Home tab - By Alien501".</p>
         </div>
 
         <div class="settings-section">
@@ -139,6 +148,7 @@
           <label class="toggle-row"><span>Spotify status</span><input type="checkbox" id="tog-spotify" class="toggle"></label>
         </div>
 
+        <button id="about-btn" type="button" class="settings-about">About</button>
         <button id="settings-reset" class="settings-reset">Reset to defaults</button>
       </div>
     </div>
@@ -153,6 +163,27 @@
         <div class="modal-actions">
           <button type="button" class="modal-btn modal-cancel">Cancel</button>
           <button type="button" class="modal-btn modal-confirm">Add</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="about-overlay" class="modal-overlay" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="about-title">
+        <p class="modal-title" id="about-title">About</p>
+        <div class="author-pfp">
+          <img src="https://avatars.githubusercontent.com/u/97647867?s=400&u=e66d423a605f8055ce282cd96a3c24000e540ae7&v=4" alt="Alien501">
+        </div>
+        <p class="settings-hint">Custom Home Tab is a personal project by <a href="https://alien501.in" target="_blank" rel="noopener noreferrer">Alien501</a>.</p>
+        <div class="about-links">
+          <div class="link-group">
+            <a class="about-link" id="link-source-code" href="https://github.com/Alien501/custom-home-tab" target="_blank" rel="noopener noreferrer">Source code ↗</a>
+            <a class="about-link" id="link-issue" href="https://github.com/Alien501/custom-home-tab/issues/new" target="_blank" rel="noopener noreferrer">Report a bug ↗</a>
+          </div>
+          <a class="about-link" href="https://github.com/Alien501" target="_blank" rel="noopener noreferrer">Developer profile ↗</a>
+          <a class="about-link" id="buy-me-coffe" href="https://buymeacoffee.com/alien501" target="_blank" rel="noopener noreferrer">Buy me a coffee ☕</a>
+        </div>
+        <div class="modal-actions">
+          <button type="button" id="about-close" class="modal-btn modal-confirm">Close</button>
         </div>
       </div>
     </div>

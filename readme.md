@@ -15,8 +15,10 @@ A clean, distraction-free new tab page for Chromium-based browsers. It replaces 
 - **Custom background media** — upload your own image, GIF, or video, optionally on a time-of-day timeline (morning/afternoon/evening/night).
 - **Accent colours & ambient embers** — pick an accent colour and toggle a subtle particle effect.
 - **Spotify status widget** — optional now-playing widget, off and hidden by default until you add your UID.
+- **Custom tab title** — set your own browser tab title, or let it fall back to your name, then a sensible default.
 - **Parallax effect** — subtle depth on mouse movement.
 - **Fully local** — no accounts, no external storage; settings live in your browser's `localStorage`/`IndexedDB`.
+- **About panel** — quick links to the source, bug reports, developer profile, and support, right from Settings.
 
 Everything above is toggled or configured from the Settings panel (gear icon, bottom-right).
 
@@ -61,6 +63,10 @@ Contributions are always welcomed! If you'd like to contribute, please:
 
 ## Contact
 
-Alien501 - [cvignesh404@gmail.com](mailto:cvignesh404@gmail.com)
+Alien501 - [cvignesh404@gmail.com](mailto:cvignesh404@gmail.com) · [alien501.in](https://alien501.in) · [GitHub](https://github.com/Alien501)
 
 Project Link: [https://github.com/Alien501/custom-home-tab](https://github.com/Alien501/custom-home-tab)
+
+Found a bug? [Open an issue](https://github.com/Alien501/custom-home-tab/issues/new).
+
+Enjoying the extension? [Buy me a coffee](https://buymeacoffee.com/alien501) ☕

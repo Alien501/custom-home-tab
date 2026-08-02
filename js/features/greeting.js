@@ -6,6 +6,7 @@ const dailyQuote = QUOTES[dayOfYear() % QUOTES.length];
 // ===== Apply settings to the UI =====
 function applySettings() {
     document.documentElement.style.setProperty('--color-orange', settings.accent);
+    document.title = settings.tabTitle || settings.name || 'Custom Home tab - By Alien501';
 
     // Greeting
     if (settings.showGreeting) {

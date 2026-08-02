@@ -327,7 +327,7 @@ body {
 
 .todo-card-container {
     padding: 1px;
-    width: 100%;
+    width: 98%;
     font-family: 'Satoshi';
     font-size: .8rem;
     display: grid;
@@ -337,10 +337,11 @@ body {
     text-align: left;
     height: 50px;
     overflow: hidden;
+    margin: 0px auto;
 }
 
 .todo-card-container {
-    border-radius: 8px;
+    border-radius: 4px;
     animation: todo-in 0.35s var(--ease);
 }
 
@@ -688,6 +689,27 @@ button svg {
     font-size: 1.2rem;
     color: var(--color-text);
     margin-bottom: 16px;
+    text-align: center;
+}
+
+.author-pfp {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.author-pfp img {
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    margin-bottom: 12px;
+    border: 2px solid var(--color-glass-strong);
+}
+
+#about-overlay .settings-hint {
+    text-align: center;
 }
 
 .modal-fields {
@@ -914,7 +936,18 @@ a:focus-visible {
 .settings-btn:hover {
     background-color: var(--color-glass-strong);
     color: var(--color-orange);
-    transform: rotate(45deg);
+}
+
+.setting-gears {
+    transform-origin: 12px 12px;
+}
+
+.settings-btn:hover .setting-gears {
+    animation: gear-spin 3s linear infinite;
+}
+
+@keyframes gear-spin {
+    to { transform: rotate(360deg); }
 }
 
 .settings-panel {
@@ -1178,6 +1211,7 @@ input[type="checkbox"].toggle:checked::before {
     background-color: var(--color-orange);
 }
 
+.settings-about,
 .settings-reset {
     width: 100%;
     padding: 10px;
@@ -1192,7 +1226,85 @@ input[type="checkbox"].toggle:checked::before {
     cursor: pointer;
 }
 
+.settings-about:hover {
+    color: var(--color-orange);
+    border-color: color-mix(in srgb, var(--color-orange) 40%, transparent);
+}
+
 .settings-reset:hover {
     color: #ff5b5b;
     border-color: color-mix(in srgb, #ff5b5b 40%, transparent);
+}
+
+.about-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 16px 0 20px;
+}
+
+.about-link {
+    padding: 10px 12px;
+    font-family: 'Satoshi';
+    font-size: 0.88rem;
+    color: var(--color-text);
+    background-color: var(--color-glass);
+    border: 1px solid var(--color-glass-strong);
+    border-radius: 9px;
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.about-link:hover {
+    color: var(--color-orange);
+    border-color: color-mix(in srgb, var(--color-orange) 40%, transparent);
+}
+
+.about-link:active {
+    transform: scale(0.97);
+}
+
+.link-group {
+    display: flex;
+    border-radius: 9px;
+    overflow: hidden;
+    border: 1px solid var(--color-glass-strong);
+}
+
+.link-group .about-link {
+    flex: 1;
+    text-align: center;
+    border: none;
+    border-radius: 0;
+}
+
+.link-group .about-link:first-child {
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+#link-source-code,
+#link-issue {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+#link-source-code:hover,
+#link-issue:hover {
+    color: var(--color-orange);
+}
+
+#buy-me-coffe {
+    background-color: #f5c000;
+    color: #1a1a1a;
+}
+
+#buy-me-coffe:hover {
+    color: #1a1a1a;
+    filter: brightness(1.08);
+}
+
+#about-close {
+    background-color: #f0f0f0;
+    color: #1a1a1a;
+    width: 100%;
 }

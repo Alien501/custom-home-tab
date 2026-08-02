@@ -3,6 +3,7 @@ const SETTINGS_KEY = 'dashboardSettings';
 
 const DEFAULT_SETTINGS = {
     name: '',
+    tabTitle: '',
     focus: '',
     accent: '#f5c000',
     focusLen: 25,
@@ -18,6 +19,8 @@ const DEFAULT_SETTINGS = {
     showSpotify: false
 };
 
+const KEYS_TO_NORMALIZE = ['name', 'spotifyToken', 'tabTitle']
+
 const ACCENTS = [
     { name: 'Gold', color: '#f5c000' },
     { name: "Cloud Dancer", color: "#F0EEE9"},
@@ -27,6 +30,10 @@ const ACCENTS = [
     { name: 'Sky', color: '#5b9dff' },
     { name: 'Mint', color: '#4fd39a' },
 ];
+
+function normaliseString(string) {
+    return string ? string.trim().replace(/\s+/g, ' ') : string;
+}
 
 function loadSettings() {
     try {

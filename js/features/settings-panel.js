@@ -6,6 +6,7 @@ const settingsReset = document.getElementById('settings-reset');
 const accentSwatches = document.getElementById('accent-swatches');
 
 const setName = document.getElementById('set-name');
+const setTabTitle = document.getElementById('set-tab-title');
 const setFocus = document.getElementById('set-focus');
 const setFocusLen = document.getElementById('set-focus-len');
 const setBreakLen = document.getElementById('set-break-len');
@@ -19,6 +20,10 @@ const setSpotifyToken = document.getElementById('set-spotify-token');
 const togBackgroundTimeline = document.getElementById('tog-background-timeline');
 const backgroundSlotsEl = document.getElementById('background-slots');
 const timelineHint = document.querySelector('.timeline-hint');
+
+const aboutBtn = document.getElementById('about-btn');
+const aboutOverlay = document.getElementById('about-overlay');
+const aboutClose = document.getElementById('about-close');
 
 // Build accent swatches once
 ACCENTS.forEach((accent) => {
@@ -37,6 +42,7 @@ ACCENTS.forEach((accent) => {
 
 function syncSettingsPanel() {
     setName.value = settings.name;
+    setTabTitle.value = settings.tabTitle;
     setFocus.value = settings.focus;
     setFocusLen.value = settings.focusLen;
     setBreakLen.value = settings.breakLen;
@@ -76,7 +82,24 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && settingsPanel.classList.contains('open')) closeSettings();
 });
 
-setName.addEventListener('input', () => { settings.name = setName.value.trim(); saveSettings(); applySettings(); });
+// Text fields that allow spaces while typing, normalised (trimmed + collapsed) on blur
+const NORMALIZED_INPUTS = { name: setName, spotifyToken: setSpotifyToken, tabTitle: setTabTitle };
+KEYS_TO_NORMALIZE.forEach((key) => {
+    const input = NORMALIZED_INPUTS[key];
+    if (!input) return;
+    input.addEventListener('input', () => {
+        settings[key] = input.value;
+        saveSettings();
+        applySettings();
+    });
+    input.addEventListener('blur', () => {
+        settings[key] = normaliseString(settings[key]);
+        input.value = settings[key];
+        saveSettings();
+        applySettings();
+    });
+});
+
 setFocus.addEventListener('input', () => { settings.focus = setFocus.value.trim(); saveSettings(); applySettings(); });
 
 setFocusLen.addEventListener('change', () => {
@@ -103,12 +126,6 @@ setBreakLen.addEventListener('change', () => {
         saveSettings();
         applySettings();
     });
-});
-
-setSpotifyToken.addEventListener('input', () => {
-    settings.spotifyToken = setSpotifyToken.value.trim();
-    saveSettings();
-    applySettings();
 });
 
 togBackgroundTimeline.addEventListener('change', async () => {
@@ -138,6 +155,22 @@ MEDIA_SLOTS.forEach((slot) => {
             input.value = '';
         }
     });
+});
+
+function openAbout() {
+    aboutOverlay.classList.add('active');
+    aboutOverlay.setAttribute('aria-hidden', 'false');
+}
+function closeAbout() {
+    aboutOverlay.classList.remove('active');
+    aboutOverlay.setAttribute('aria-hidden', 'true');
+}
+
+aboutBtn.addEventListener('click', openAbout);
+aboutClose.addEventListener('click', closeAbout);
+aboutOverlay.addEventListener('mousedown', (e) => { if (e.target === aboutOverlay) closeAbout(); });
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && aboutOverlay.classList.contains('active')) closeAbout();
 });
 
 settingsReset.addEventListener('click', async () => {
