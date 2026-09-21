@@ -43,7 +43,9 @@ function applySettings() {
 
     applySpotify();
 
-    syncSettingsPanel();
+    if (typeof applyParallax === 'function') applyParallax();
+
+    if (typeof syncSettingsPanel === 'function') syncSettingsPanel();
 }
 
 // ===== Greeting / focus inline editing =====

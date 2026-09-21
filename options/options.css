@@ -1,0 +1,411 @@
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/Satoshi-Variable.ttf");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 440px;
+  min-height: 100px;
+}
+
+.option-body {
+  background-color: #1b1b1d;
+  color: #efefef;
+  font-family:
+    "Satoshi",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  padding: 16px;
+  overflow-x: hidden;
+}
+
+.option-header {
+  padding: 4px 0 8px;
+  text-align: center;
+}
+
+.option-header h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Tab Navigation */
+.tab-container {
+  margin: 8px auto 16px;
+  width: max-content;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2px;
+  background-color: #313131;
+  border-radius: 9px;
+}
+
+.indicator {
+  width: 80px;
+  height: 28px;
+  background: #ffffff;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  z-index: 1;
+  border: 0.5px solid rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0px 3px 8px rgba(0, 0, 0, 0.12),
+    0px 3px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 7px;
+  transition: left 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.tab {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tab_label {
+  width: 80px;
+  height: 28px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #efefef;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.tab:checked + .tab_label,
+.tab_label.active {
+  color: #1b1b1d;
+  opacity: 1;
+}
+
+/* Tab Panels */
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+/* Options Container & Sections */
+.options-container {
+  width: 100%;
+}
+
+.options-section {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.options-label {
+  width: 100%;
+  display: block;
+  font-family: "Satoshi";
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-dim);
+  margin-bottom: 8px;
+}
+
+.options-input {
+  width: 100%;
+  padding: 9px 12px;
+  font-family: "Satoshi";
+  font-size: 0.9rem;
+  color: var(--color-text);
+  background-color: var(--color-glass);
+  border: 1px solid var(--color-glass-strong);
+  border-radius: 9px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.options-input:focus {
+  border-color: var(--color-orange);
+}
+
+.options-hint {
+  width: 100%;
+  font-family: "Satoshi";
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--color-text-dim);
+  margin-top: 6px;
+}
+
+.options-hint a {
+  color: var(--color-orange);
+  text-decoration: none;
+}
+
+.options-hint a:hover {
+  text-decoration: underline;
+}
+
+/* Accent Swatches */
+.accent-swatches {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.accent-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  transition: transform 0.15s ease;
+}
+
+.accent-swatch:hover {
+  transform: scale(1.12);
+}
+
+.accent-swatch.active {
+  border-color: #fff;
+  outline-color: color-mix(in srgb, var(--color-orange) 60%, transparent);
+}
+
+/* Pomodoro Lengths */
+.pomo-lengths {
+  display: flex;
+  gap: 12px;
+}
+
+.pomo-lengths label {
+  flex: 1;
+  font-family: "Satoshi";
+  font-size: 0.8rem;
+  color: var(--color-text-dim);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pomo-num {
+  width: 100%;
+}
+
+/* Toggles */
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Satoshi";
+  font-size: 0.88rem;
+  color: var(--color-text);
+  padding: 7px 0;
+  cursor: pointer;
+}
+
+input[type="checkbox"].toggle {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  width: 38px;
+  height: 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--color-glass-strong);
+  cursor: pointer;
+  flex-shrink: 0;
+  display: block;
+}
+
+input[type="checkbox"].toggle::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--color-text-dim);
+  transition: transform 0.2s var(--ease), background-color 0.2s ease;
+}
+
+input[type="checkbox"].toggle:checked {
+  background-color: color-mix(in srgb, var(--color-orange) 45%, transparent);
+}
+
+input[type="checkbox"].toggle:checked::before {
+  transform: translateX(18px);
+  background-color: var(--color-orange);
+}
+
+/* Background Media */
+.background-media-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.background-preview {
+  height: 140px;
+  overflow: hidden;
+  border: 1px solid var(--color-glass-strong);
+  border-radius: 9px;
+  background-color: var(--color-glass);
+}
+
+.background-preview img,
+.background-preview video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.background-current .options-label {
+  margin-bottom: 5px;
+}
+
+.background-slot {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  font-family: "Satoshi";
+  font-size: 0.82rem;
+  color: var(--color-text);
+  background-color: var(--color-glass);
+  border: 1px solid var(--color-glass-strong);
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+.background-slot input {
+  display: none;
+}
+
+.background-slot small {
+  grid-column: 2;
+  color: var(--color-text-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.background-slots {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.background-slots.is-hidden,
+.timeline-hint.is-hidden {
+  display: none;
+}
+
+/* Reset Button */
+.settings-reset {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  font-family: "Satoshi";
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--color-text-dim);
+  background-color: transparent;
+  border: 1px solid var(--color-glass-strong);
+  border-radius: 9px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.settings-reset:hover {
+  color: #ff5b5b;
+  border-color: color-mix(in srgb, #ff5b5b 40%, transparent);
+}
+
+/* About Section */
+.about-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.author-pfp {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 4px auto 12px;
+  border: 2px solid var(--color-glass-strong);
+}
+
+.author-pfp img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-intro {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.about-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.link-group {
+  display: flex;
+  gap: 8px;
+}
+
+.link-group .about-link {
+  flex: 1;
+}
+
+.about-link {
+  padding: 10px 12px;
+  font-family: "Satoshi";
+  font-size: 0.85rem;
+  color: var(--color-text);
+  background-color: var(--color-glass);
+  border: 1px solid var(--color-glass-strong);
+  border-radius: 9px;
+  text-decoration: none;
+  text-align: center;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.about-link:hover {
+  color: var(--color-orange);
+  border-color: color-mix(in srgb, var(--color-orange) 40%, transparent);
+}
