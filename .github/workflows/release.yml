@@ -29,7 +29,7 @@ jobs:
 
       - name: Zip extension
         if: steps.tagcheck.outputs.exists == 'false'
-        run: zip -r custom-home-tab.zip index.html manifest.json css js libs assets -x "assets/media/*"
+        run: zip -r custom-home-tab.zip index.html manifest.json css js libs assets options -x "assets/media/*"
 
       - name: Create release
         if: steps.tagcheck.outputs.exists == 'false'
