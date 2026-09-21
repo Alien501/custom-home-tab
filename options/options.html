@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Home Tab Options Menu</title>
+    <link rel="stylesheet" href="options.css">
+    <link rel="stylesheet" href="/css/colors.css">
+</head>
+<body class="option-body">
+    <div class="option-header">
+        <h1>Custom Home Tab</h1>
+    </div>
+    <!-- From Uiverse.io by zanina-yassine --> 
+    <div class="tab-container">
+        <input type="radio" checked name="tab" id="tab1" class="tab tab--1" />
+        <label class="tab_label" for="tab1">General</label>
+
+        <input type="radio" name="tab" id="tab2" class="tab tab--2" />
+        <label class="tab_label" for="tab2">Media</label>
+
+        <input type="radio" name="tab" id="tab3" class="tab tab--3" />
+        <label class="tab_label" for="tab3">Config</label>
+        
+        <input type="radio" name="tab" id="tab4" class="tab tab--4" />
+        <label class="tab_label" for="tab4">About</label>
+
+        <div class="indicator"></div>
+    </div>
+
+    <div class="options-container">
+        <div class="options-section">
+            <label class="options-label" for="set-name">Your Name</label>
+            <input type="text" id="set-name" class="options-input" placeholder="Add your name" maxlength="24">
+        </div>
+        
+        <div class="options-section">
+          <label class="options-label" for="set-tab-title">Tab title</label>
+          <input type="text" id="set-tab-title" class="options-input" placeholder="Custom Home tab - By Alien501" maxlength="60">
+          <p class="options-hint">Shown in the browser tab. Falls back to your name, then "Custom Home tab - By Alien501".</p>
+        </div>
+    </div>
+</body>
+</html>

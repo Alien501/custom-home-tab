@@ -41,17 +41,6 @@
     transition: all .3s ease;
 }
 
-:root {
-    --color-orange: #f5c000;
-    --color-white: #ffffff0d;
-    --color-glass: #ffffff0d;
-    --color-glass-strong: #ffffff1a;
-    --color-text: #f3f3f3;
-    --color-text-dim: #ffffff80;
-    --radius: 12px;
-    --ease: cubic-bezier(0.22, 1, 0.36, 1);
-}
-
 body {
     display: flex;
     justify-content: center;
