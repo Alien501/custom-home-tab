@@ -6,6 +6,7 @@ const parallaxTimeContainer = document.querySelector('.time-container');
 const parallaxMostVisitedContainer = document.getElementById('most-visited-sites');
 
 let mouseX = 0, mouseY = 0, currentBgX = 0, currentBgY = 0, currentFgX = 0, currentFgY = 0;
+let parallaxRAF = null;
 
 const animationConfig = {
     bg: {
@@ -23,20 +24,25 @@ document.addEventListener('backgroundmediachange', (event) => {
 });
 
 container.addEventListener('mousemove', (e) => {
+    if (!settings.enableParallax) return;
     const rect = container.getBoundingClientRect();
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
     mouseX = (e.clientX - rect.left - centerX) / centerX;
     mouseY = (e.clientY - rect.top - centerY) / centerY;
-
-})
+});
 
 container.addEventListener('mouseleave', () => {
     mouseX = 0, mouseY = 0, currentBgX = 0, currentBgY = 0, currentFgX = 0, currentFgY = 0;
-})
+});
 
 function parallaxEffect() {
+    if (!settings.enableParallax) {
+        parallaxRAF = null;
+        return;
+    }
+
     const bgX = -mouseX * animationConfig.bg.maxMove;
     const bgY = -mouseY * animationConfig.bg.maxMove;
 
@@ -63,7 +69,7 @@ function parallaxEffect() {
         duration: 0,
         easing: 'linear',
         scale: .9,
-    })
+    });
 
     anime({
         targets: parallaxDayContainer,
@@ -72,7 +78,7 @@ function parallaxEffect() {
         duration: 0,
         easing: 'linear',
         scale: .9,
-    })
+    });
 
     anime({
         targets: parallaxMostVisitedContainer,
@@ -81,9 +87,40 @@ function parallaxEffect() {
         duration: 0,
         easing: 'linear',
         scale: .9,
-    })
+    });
 
-    requestAnimationFrame(parallaxEffect);
+    parallaxRAF = requestAnimationFrame(parallaxEffect);
 }
 
-parallaxEffect();
+function toggleParallaxEffect(from) {
+    const container = document.getElementById('container');
+    if(!container) return;
+
+    if(from == 'start') {
+        container.classList.add('parallax');
+    }else if(from == "stop") {
+        container.classList.remove('parallax');
+    }
+}
+
+function startParallax() {
+    if (parallaxRAF || !settings.enableParallax) return;
+    toggleParallaxEffect('start')
+    parallaxRAF = requestAnimationFrame(parallaxEffect);
+}
+
+function stopParallax() {
+    toggleParallaxEffect('stop')
+    if (parallaxRAF) {
+        cancelAnimationFrame(parallaxRAF);
+        parallaxRAF = null;
+    }
+}
+
+function applyParallax() {
+    settings.enableParallax ? startParallax() : stopParallax();
+}
+
+if (settings.enableParallax) {
+    startParallax();
+}

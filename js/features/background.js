@@ -79,6 +79,7 @@ async function updateBackgroundPreview() {
     const slot = resolveBackgroundSlot();
     const media = slot && await backgroundDb('get', slot);
     const preview = document.getElementById('bg-preview');
+    if (!preview) return;
     if (previewUrl) URL.revokeObjectURL(previewUrl);
     previewUrl = media ? URL.createObjectURL(media) : null;
     const element = document.createElement(media?.type.startsWith('video/') ? 'video' : 'img');

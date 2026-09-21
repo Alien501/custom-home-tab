@@ -59,8 +59,16 @@ body {
     /* cursor: pointer; */
 }
 
-#container:hover .background-media{
+#container.parallax:hover .background-media{
     scale: 1.05;
+}
+
+/* Force Scale Down */
+#todo-container,
+.day-container,
+.time-container,
+#most-visited-sites {
+    scale: .9;
 }
 
 .background-media {

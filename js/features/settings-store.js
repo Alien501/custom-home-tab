@@ -13,6 +13,7 @@ const DEFAULT_SETTINGS = {
     showPomodoro: true,
     showEmbers: true,
     showSeconds: false,
+    enableParallax: true,
     useBackgroundTimeline: false,
     backgroundSlots: {},
     spotifyToken: "",
